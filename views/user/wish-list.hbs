@@ -1,0 +1,142 @@
+<section class="cart_area section_padding"  style="padding: 0px;">
+
+  <div class="container">
+    <div class="cart_inner">
+      <div class="table-responsive">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col"></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {{#each wishListItems.products}}
+            <tr>
+              <td>
+                <div class="media">
+                  <div class="d-flex">
+                    <img style="width: 10em;height: 8em;" src="/uploads/{{pro_Id.Image.[0].image_1}}" alt="" />
+                  </div>
+              <td>
+                <h5>{{pro_Id.ProductName}}</h5>
+              </td>
+
+             
+      </div>
+      </td>
+     
+      <td>
+        <h5>{{pro_Id.Price}}</h5>
+      </td>
+      <td>
+        <button class="btn_1 btn-primary" 
+        style="color: #fff; background-color: #e4ac11; border-color: #e4ac11; padding: 10px 25px"
+         onclick=" addToCart('{{pro_Id._id}}');removeProductFromWishList('{{this._id}}')"  >ADD TO CART</button>
+        {{!-- <a href="#" class="btn btn-danger ">REMOVE</a> --}}
+
+        <button type="button" class=" btn_1 btn-danger"  
+        style="color: #fff; background-color: #dc3545; border-color: #dc3545; padding: 10px 25px" 
+        onclick="removeProductFromWishList('{{this._id}}')">
+         Remove</button>
+        {{!-- <a href="#" class="btn btn-danger ">REMOVE</a> --}}
+      </td>
+      </tr>
+      {{/each}}
+      </tbody>
+
+
+
+      </table>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+
+<script>
+     function removeProductFromWishList(wishListId) {
+          $.ajax({
+            url: "/removeProductFromWishList",
+            data: {
+              wishList: wishListId,
+            },
+            method: "post",
+            success: (response) => {
+              if (response) {
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: '',
+                    text: 'product removed ',
+                    footer: ''
+                  })
+                 location.reload()
+
+                
+              }
+            }
+          })
+        }
+  </script>
+
+
+<script>
+  function addToCart(productId){
+    $.ajax({
+        url:'/addToCart/'+productId,
+        method:'get',
+        success:(response)=>{
+            if(response.status){
+                let count=$('#cart-count').html()
+                count=parseInt(count)+1
+                $("#cart-count").html(count)
+
+                Swal.fire({
+                    icon: 'success',
+                    title: '',
+                    text: 'Added to cart',
+                    footer: ''
+                  })
+
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please Login!',
+                    footer: '<a href="/login">Login</a>'
+                  })
+            }
+            
+        }
+    })
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  
+
+  .cart_inner .table thead tr th {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(92, 83, 83);
+  }
+
+  
+</style>

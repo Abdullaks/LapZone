@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+
+</head>
+
+<body>
+  <main>
+    {{!--
+    <!-- Hero Area Start-->
+    <div class="slider-area ">
+      <div class="single-slider slider-height2 d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="hero-cap text-center">
+                <h2>Cart List</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> --}}
+    <!--================Cart Area =================-->
+    <section class="cart_area section_padding " style="padding: 0px;">
+      <div class="container">
+        <div class="cart_inner">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  {{!-- <th scope="col">Total</th> --}}
+                  <th></th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                {{#each cartItems.products}}
+                <tr>
+                  <td>
+                    <img style="width: 10em;height: 8em;" src="/uploads/{{pro_id.Image.[0].image_1}}" alt="" />
+                  </td>
+                  <td>
+                    <div class="media-body">
+                        <p>{{pro_id.ProductName}}</p>
+                    </div>  
+                  </td>
+                  <td>
+                    <h5>₹{{pro_id.Price}}</h5>
+                  </td>
+
+                  <td>
+                    <div class="text-center  m-2  " style="display: flex;">
+                      <button class="btn-secondary"   
+                      onclick="changeQuantity('{{this._id}}','{{pro_id._id}}','{{pro_id.ProductName}}','{{pro_id.Price}}',-1)">
+                        <i class="fs-12 fa fa-minus" aria-hidden="true" ></i>
+                        </button>
+                      <span style="width: 25px;" id="{{pro_id._id}}">{{this.quantity}}</span>
+                      <button class="btn-secondary" style="border:none;width: 22 px;"
+                      onclick="changeQuantity('{{this._id}}','{{pro_id._id}}','{{pro_id.ProductName}}','{{pro_id.Price}}',1)">
+                        <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                  </td>
+                  {{!-- <td>
+                    <h5 id="{{pro_id.ProductName}}">{{this.subtotal}}</h5>
+                  </td> --}}
+                  <td> 
+                    <button type="button" class=" btn_1 btn-danger"  style="color: #fff; background-color: #dc3545; border-color: #dc3545; padding: 10px 25px" 
+                    onclick="removeProductFromCart('{{this._id}}')">
+                        Remove</button>
+                       
+                  </td>
+                  
+                </tr>
+                {{/each}}
+
+                {{!-- <tr class="bottom_button">
+                  <td>
+                    <a class="btn_1" href="#">Update Cart</a>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div class="cupon_text float-right">
+                      <a class="btn_1" href="#">Close Coupon</a>
+                    </div>
+                  </td>
+                </tr> --}}
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <h5>Subtotal</h5>
+                  </td>
+                  <td>
+                    <h5>₹<span id="netTotal">{{netTotal}}</span></h5>
+                  </td>
+                </tr>
+                {{!-- <tr class="shipping_area">
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <h5>Shipping</h5>
+                  </td> --}}
+                  {{!-- <td>
+                    <div class="shipping_box">
+                      <ul class="list">
+                        <li>
+                          Flat Rate: $5.00
+                          <input type="radio" aria-label="Radio button for following text input">
+                        </li>
+                        <li>
+                          Free Shipping
+                          <input type="radio" aria-label="Radio button for following text input">
+                        </li>
+                        <li>
+                          Flat Rate: $10.00
+                          <input type="radio" aria-label="Radio button for following text input">
+                        </li>
+                        <li class="active">
+                          Local Delivery: $2.00
+                          <input type="radio" aria-label="Radio button for following text input">
+                        </li>
+                      </ul>
+                      <h6>
+                        Calculate Shipping
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </h6>
+                      <select class="shipping_select">
+                        <option value="1">Bangladesh</option>
+                        <option value="2">India</option>
+                        <option value="4">Pakistan</option>
+                      </select>
+                      <select class="shipping_select section_bg">
+                        <option value="1">Select a State</option>
+                        <option value="2">Select a State</option>
+                        <option value="4">Select a State</option>
+                      </select>
+                      <input class="post_code" type="text" placeholder="Postcode/Zipcode" />
+                      <a class="btn_1" href="#">Update Details</a>
+                    </div>
+                  </td> --}}
+                </tr>
+              </tbody>
+            </table>
+            <div class="checkout_btn_inner float-right">
+              <a class="btn_1" href="/shop">Continue Shopping</a>
+              <a class="btn_1 checkout_btn_1" href="/checkOut">Proceed to checkout</a>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!--================End Cart Area =================-->
+  </main>>
+  
+  <!--? Search model Begin -->
+  <div class="search-model-box">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-btn">+</div>
+      <form class="search-model-form">
+        <input type="text" id="search-input" placeholder="Searching key.....">
+      </form>
+    </div>
+  </div>
+  <!-- Search model end -->
+
+  <!-- JS here -->
+
+  <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+  <!-- Jquery, Popper, Bootstrap -->
+  <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <!-- Jquery Mobile Menu -->
+  <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+  <!-- Jquery Slick , Owl-Carousel Plugins -->
+  <script src="./assets/js/owl.carousel.min.js"></script>
+  <script src="./assets/js/slick.min.js"></script>
+
+  <!-- One Page, Animated-HeadLin -->
+  <script src="./assets/js/wow.min.js"></script>
+  <script src="./assets/js/animated.headline.js"></script>
+
+  <!-- Scrollup, nice-select, sticky -->
+  <script src="./assets/js/jquery.scrollUp.min.js"></script>
+  <script src="./assets/js/jquery.nice-select.min.js"></script>
+  <script src="./assets/js/jquery.sticky.js"></script>
+  <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+  <!-- contact js -->
+  <script src="./assets/js/contact.js"></script>
+  <script src="./assets/js/jquery.form.js"></script>
+  <script src="./assets/js/jquery.validate.min.js"></script>
+  <script src="./assets/js/mail-script.js"></script>
+  <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+
+  <!-- Jquery Plugins, main Jquery -->
+  <script src="./assets/js/plugins.js"></script>
+  <script src="./assets/js/main.js"></script>
+
+  <script>
+
+    function changeQuantity(cartId,productId,name,price,count){
+       
+     let  quantity=parseInt(document.getElementById(productId).innerHTML)
+      count=parseInt(count)
+      price=parseInt(price)
+      $.ajax({
+        url:'/changeProductQuantity',   
+        data:{
+          
+          cart:cartId,
+          product:productId,
+          quantity:quantity,
+          price:price,
+          count:count
+          
+        },
+        method:'post',
+        success:(response)=>{
+          
+           if(response.removeProduct){
+
+            alert("Product removed from cart")
+            location.reload() 
+          }else{  
+            
+             document.getElementById(productId).innerHTML=quantity+count
+             
+            document.getElementById('netTotal').innerHTML=response.netTotal
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+            
+
+          }
+        }
+      })
+    }
+
+  </script>
+
+  <script>
+     function removeProductFromCart(cartId) {
+          $.ajax({
+            url: "/removeProductFromCart",
+            data: {
+              cart: cartId,
+            },
+            method: "post",
+            success: (response) => {
+              if (response) {
+                alert('product removed from cart')
+                location.reload()
+              }
+            }
+          })
+        }
+  </script>
+
+</body>
+
+</html>
+{{!-- document.getElementById(name).innerHTML=(quantity+count)*price --}}

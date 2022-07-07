@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Order Details</title>
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+	<!-- MDB -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+</head>
+
+<body style="background-color:#efe1e12b ;">
+
+	<section class=" gradient-custom   ">
+		<div class="container  ">
+			<div class="pt-5 pb-5">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-lg-10 col-xl-10">
+						<div class="card" style="border-radius: 10px;">
+							{{!-- <div class="card-header px-4 py-5 pt-5">
+								<h5 class="text-muted mb-0">Thanks for your Order, <span
+										style="color:#5b5752;">{{orderDetails.deliveryDetails.name}}</span><span
+										style="color: #a8729a;"></span>!</h5>
+							</div> --}}
+							<div class="card-body p-4">
+								<div class="d-flex justify-content-between align-items-center mb-4">
+									<p class="lead fw-normal mb-0" style="color: #c86011e0;">Receipt</p>
+									<p class="small text-muted mb-0">Receipt Voucher : {{orderDetails._id}}</p>
+								</div>
+
+								{{#each orderDetails.product}}
+								<div class="card shadow-0 border mb-4">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-md-2">
+												<img src="/uploads/{{this.pro_id.Image.[0].image_1}}" class="img-fluid"
+													alt="Phone">
+											</div>
+											<div
+												class="col-md-3 text-center d-flex justify-content-center align-items-center">
+												<p class="text-muted mb-0">{{this.pro_id.ProductName}}</p>
+											</div>
+											<div
+												class="col-md-1 text-center d-flex justify-content-center align-items-center">
+												<p class="text-muted mb-0 small">{{pro_id.Color}}</p>
+											</div>
+
+											<div
+												class="col-md-1 text-center d-flex justify-content-center align-items-center">
+												<p class="text-muted mb-0 small">x {{this.quantity}}</p>
+											</div>
+											<div
+												class="col-md-1 text-center d-flex justify-content-center align-items-center">
+												<p class="text-muted mb-0 small">₹ {{pro_id.Price}}</p>
+											</div>
+											<div
+												class="col-md-2 text-center d-flex justify-content-center align-items-center">
+												<p class="text-muted mb-0 small">
+													Status : <span style="color:orangered"> {{this.status}}</span> </p>
+											</div>
+											{{!-- <div
+												class="col-md-2 text-center d-flex justify-content-center align-items-center">
+												<a href="/viewOrderSingle/{{this.item}}"
+													class="btn primary-btn">Details</a>
+											</div> --}}
+											{{!-- <div
+												class="col-md-2 text-center d-flex justify-content-center align-items-center">
+												<form action="/viewOrderSingle" method="post">
+													<input type="text" name="orderId" value="{{../order._id}}" hidden>
+													<input type="text" name="proId" value="{{this.product}}" hidden>
+													<button type="submit" class="btn primary-btn">VIEW</button>
+												</form>
+											</div> --}}
+
+
+											<div
+												class="col-md-2 text-center d-flex justify-content-center align-items-center">
+												
+
+											</div>
+
+										</div>
+
+										{{!--
+										<hr class="mb-4" style="background-color: #e0e0e0; opacity: 0;"> --}}
+										<div class="row d-flex align-items-center">
+
+										</div>
+									</div>
+								</div>
+
+								{{/each}}
+
+
+								<div class="d-flex justify-content-between pt-2">
+									<p class="fw-bold mb-0"><span style="color:orangered;">Order Details</span></p>
+								</div>
+
+								{{!-- <div class="d-flex justify-content-between pt-2">
+									<p class="text-muted mb-0">Invoice Number : 788152</p>
+									<p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> $19.00</p>
+								</div> --}}
+
+								<div class="d-flex justify-content-between pt-2">
+									<p class="text-muted mb-0"><span class="fw-bold me-4">Invoice Date :</span>
+										{{orderDetails.ordered_on}}</p>
+									{{!-- <p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p>
+									--}}
+								</div>
+								<div class="d-flex justify-content-between pt-2">
+									<p class="text-muted mb-0"><span class="fw-bold me-4">Sub Total</span>
+										₹{{orderDetails.Total}}
+										{{!--
+									<p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p> --}}
+								</div>
+
+								<div class="d-flex justify-content-between ">
+									{{!-- <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
+									<p class="text-muted mb-0"><span class="fw-bold me-4">Shipping: </span>
+										₹{{orderDetails.ShippingCharge}}</p>
+								</div>
+								{{!-- <div class="d-flex justify-content-between ">
+									{{!-- <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
+									<p class="text-muted mb-0"><span class="fw-bold me-4">Coupon Discount : </span>
+										-₹{{orderDetails.couponDiscount}}</p>
+								</div> --}}
+								<div class="d-flex justify-content-between ">
+									{{!-- <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
+									<p class="text-muted mb-0"><span class="fw-bold me-4">Grand Total : </span> ₹
+										{{orderDetails.grandTotal}}</p>
+								</div>
+
+							</div>
+							{{!-- <div class="card-footer border-0 px-4 py-5 "
+								style="background-color: #5b5752; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+								<h5
+									class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+									Total
+									paid: <span class="h2 mb-0 ms-2">₹{{orderDetails.grandTotal}}</span></h5>
+							</div> --}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	{{!--
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+	{{!--
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
+	{{!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.js"></script> --}}
+
+<script>
+
+</script>
+
+
+
+
+
+	<script>
+		// delete popup
+		$('.cancelOrder').on('click', function (e) {
+			e.preventDefault();
+			var self = $(this);
+			console.log(self.data('title'));
+			Swal.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					Swal.fire(
+						'Deleted!',
+						'Your file has been deleted.',
+						'success'
+					)
+					location.href = self.attr('href');
+				}
+			})
+
+		})
+		$("#success-alert").fadeTo(2000, 500).slideUp(1000, function () {
+			$("#success-alert").slideUp(100);
+		});
+	</script>
+
+
+	<script>
+
+		function cancelOrder(orderId, productId, subtotal, totalAmount, couponPercent, reFund, quantity) {
+			$.ajax({
+				url: '/cancelOrder',
+				data: {
+					orderId: orderId,
+					productId: productId,
+					subtotal: subtotal,
+					totalAmount: totalAmount,
+					couponPercent: couponPercent,
+					reFund: reFund,
+					quantity: quantity,
+
+				},
+				method: 'post',
+				success: (response) => {
+					if (response.status) {
+						alert(' Product Cancelled from Order')
+						location.reload()
+					} else {
+						alert("all Product Cancelled from Order")
+						location.href = '/viewOrderProducts/' + orderId
+					}
+				}
+			})
+
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+</body>
+
+</html>

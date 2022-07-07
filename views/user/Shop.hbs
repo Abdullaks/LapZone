@@ -1,0 +1,345 @@
+{{!--
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
+
+{{!--
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
+
+
+
+<div class="container">
+    <div class="row">
+        <aside class="col-md-3">
+            <form id="filter" method="post">
+                <div class="card">
+                    <article class="filter-group">
+                        <header class="card-header">
+                            <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+                                <i class="icon-control fa fa-chevron-down" style="color: black;"></i>
+                                <h6 class="title" style="color: black;">Category Types</h6>
+                            </a>
+                        </header>
+
+
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+
+                                {{#each category}}
+
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" value="{{this._id}}"
+                                        name="Category">
+                                    <div class="custom-control-label">{{this.CategoryName}}
+                                    </div>
+                                </label>
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- filter-group  .// -->
+                    <article class="filter-group">
+                        <header class="card-header">
+                            <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+                                <i class="icon-control fa fa-chevron-down" style="color: black;"></i>
+                                <h6 class="title" style="color: black;">Brands</h6>
+                            </a>
+                        </header>
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+
+                                {{#each brands}}
+
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" value="{{this._id}}" name="Brand">
+                                    <div class="custom-control-label">{{this.BrandName}}
+                                    </div>
+                                </label>
+                                {{/each}}
+
+
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- filter-group .// -->
+                    <article class="filter-group">
+                        <header class="card-header">
+                            <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
+                                <i class="icon-control fa fa-chevron-down" style="color: black;"></i>
+                                <h6 class="title" style="color: black;">Price range </h6>
+                            </a>
+                        </header>
+
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" value="30000" name="Prize">
+                                    <div class="custom-control-label">Under 30000
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" value="50000" name="Prize">
+                                    <div class="custom-control-label">Under 50000
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" value="75000" name="Prize">
+                                    <div class="custom-control-label">Under 75000
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" value="100000" name="Prize">
+                                    <div class="custom-control-label">Under 100000
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" value="200000" name="Prize">
+                                    <div class="custom-control-label">Under 200000
+                                    </div>
+                                </label>
+
+                                <label class="custom-control custom-checkbox">
+                                    <input type="radio" class="custom-control-input" name="Prize" value="400000" hidden
+                                        checked>
+
+                                </label>
+
+
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+            </form>
+        </aside>
+
+
+        <main class="col-md-9">
+            <div class="popular-items section-padding30 pt-0">
+                <div class="container pt-1">
+                    {{#if filterResult}}
+
+                    <div class="row" id="products">
+                        {{#each filterResult}}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                            <div class="single-popular-items mb-50 text-center">
+                                <div class="popular-img ">
+                                    <a href="/productDetails/{{this._id}}"><img
+                                            src="/uploads/{{this.Image.[0].image_1}}"
+                                            style="width: 20rem; height: 18rem; object-fit: cover;" alt=""></a>
+
+
+                                    <div class="img-cap">
+                                        <span><button onclick=" addToCart('{{this._id}}')"
+                                                style="background-color:transparent;border:none">Add to
+                                                cart</button></span>
+                                    </div>
+                                    <div class="favorit-items">
+                                        <span class="flaticon-heart"><button onclick=" addToWishList('{{this._id}}')"
+                                                style="background-color:transparent;border:none "></button></span>
+                                    </div>
+
+                                </div>
+                                <div class="popular-caption">
+                                    <h3><a href="/productDetails/{{this._id}}">{{this.ProductName}}</a></h3>
+                                    <span>₹{{this.Price}}</span>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        {{/each}}
+
+                    </div>
+                    {{else}}
+                    <h3 style="color: red;"> sorry,No Products Found</h3>
+                    <img src="	https://www.itinerantnotes.com/blog-theme/images/empty.gif" alt="" srcset="">
+
+
+                    {{/if}}
+
+                </div>
+            </div>
+
+            {{!-- <nav class="mt-4" aria-label="Page navigation sample">
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav> --}}
+
+        </main>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+    function addToCart(productId) {
+        $.ajax({
+            url: '/addToCart/' + productId,
+            method: 'get',
+            success: (response) => {
+                if (response) {
+
+                    if (response.added) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '',
+                            text: 'Added to cart',
+                            footer: ''
+                        })
+
+                        let count = $('#cart-count').html()
+                        count = parseInt(count) + 1
+                        $("#cart-count").html(count)
+                    }
+
+
+                    if (response.newCart) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '',
+                            text: 'Added to cart',
+                            footer: ''
+                        })
+                        let count = $('#cart-count').html()
+                        count = parseInt(count) + 1
+                        $("#cart-count").html(count)
+                    }
+
+
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please Login!',
+                        footer: '<a href="/login">Login</a>'
+                    })
+                }
+
+            }
+        })
+    }
+
+    function addToWishList(productId) {
+
+        $.ajax({
+
+            url: '/addToWishList/' + productId,
+            method: 'get',
+            success: (response) => {
+                if (response.added) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '',
+                        text: 'Added to wishList',
+                        footer: ''
+                    })
+
+                    let count = $('#wishlist-count').html()
+                    count = parseInt(count) + 1
+                    $("#wishlist-count").html(count)
+
+                }
+                if (response.productAlreadyInWishList) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '',
+                        text: 'Product Already in Wish-list',
+                        footer: ''
+                    })
+                }
+
+
+            }
+        })
+    }
+
+
+    $('input[name=Brand]').change(function () {
+
+        $.ajax({
+            url: '/search-filter',
+            method: "post",
+            data: $('#filter').serialize(),
+            success: (isResult) => {
+                console.log(isResult)
+                if (isResult) {
+                    // window.location.reload()
+                    // $('#products').load('/products/filter');
+                    $('#products').load(location.href + " #products");
+                }
+            }
+        })
+
+    });
+
+    $('input[name=Prize]').change(function () {
+
+        $.ajax({
+            url: '/search-filter',
+            method: "post",
+            data: $('#filter').serialize(),
+            success: (isResult) => {
+                console.log(isResult)
+                if (isResult) {
+                    // window.location.reload()
+                    // $('#products').load('/products/filter');
+                    $('#products').load(location.href + " #products");
+                }
+            }
+        })
+
+    });
+
+    $('input[name=Category]').change(function () {
+
+        $.ajax({
+            url: '/search-filter',
+            method: "post",
+            data: $('#filter').serialize(),
+            success: (isResult) => {
+                if (isResult) {
+                    // window.location.reload()
+                    // $('#products').load('/products/filter');
+                    $('#products').load(location.href + " #products");
+                }
+            }
+        })
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

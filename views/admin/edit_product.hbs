@@ -1,0 +1,290 @@
+{{!-- add product form css --}}
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
+{{!-- add product form css end --}}
+
+
+<div class="container mt-4 col-xl-6">
+    <form class="text-center border border-light p-5" action="/admin/EditProduct/{{product._id}}" method="post"
+        enctype="multipart/form-data">
+
+        <h3 style="text-align: center;">Edit Product</h3>
+
+        <div class="form-row mb-4" style="display: flex;">
+
+            <div class="col">
+                <!--  name -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Product Name"
+                    name="productname" value="{{product.ProductName}}">
+            </div>
+            <div class="col">
+                <select class="form-control" id="exampleFormControlSelect1" name="brand">
+                    <option> Select Brand</option>
+                    {{#each brands}}
+                    <option>{{this.BrandName}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+        </div>
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <!-- brand name -->
+                <select class="form-control" id="exampleFormControlSelect1" name="processorType"
+                    value="{{product.Processor}}">
+                    <option> select Processor</option>
+                    <option>Intel</option>
+                    <option>Rayzon</option>
+
+                </select>
+
+            </div>
+            <div class="col">
+                <!--  name -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Processor Name"
+                    name="processorName" value="{{product.ProcessorName}}">
+            </div>
+        </div>
+
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <select class="form-control" id="exampleFormControlSelect1" name="category">
+                    <option>Select Category</option value="{{product.Category}}">
+                    {{#each category}}
+                    <option>{{this.CategoryName}}</option>
+                    {{/each}}
+                    {{!-- <option>3</option>
+                    <option>4</option>
+                    <option>5</option> --}}
+                </select>
+            </div>
+            <div class="col">
+                <!-- price -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Screen Size"
+                    name="screenSize" value="{{product.ScreenSize}}">
+            </div>
+        </div>
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+
+
+                <select class="form-control" id="exampleFormControlSelect1" name="storageType"
+                    value="{{product.StorageType}}">
+                    <option>Storage Type</option>
+                    <option>SSD</option>
+                    <option>HDD</option>
+
+                </select>
+            </div>
+            <div class="col">
+                <!--  storage -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Storage Capacity"
+                    name="storageCapacity" value="{{product.StorageCapacity}}">
+            </div>
+        </div>
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+
+                {{!-- <label for="exampleFormControlSelect1">Example select</label> --}}
+                <select class="form-control" id="exampleFormControlSelect1" name="ram" value="{{product.Ram}}">
+                    <option>Select Ram</option>
+
+                    <option>4 GB</option>
+                    <option>6 GB</option>
+                    <option>8 GB</option>
+                    <option>16 GB</option>
+                </select>
+            </div>
+            <div class="col">
+                <!--  name -->
+
+
+                <input type="number" id="defaultRegisterFormFirstName" class="form-control" placeholder="MRP" name="MRP"
+                    value="{{product.MRP}}">
+            </div>
+        </div>
+
+
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <!-- price -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Discount percent"
+                    name="discount" value="{{product.Discount}}">
+
+
+            </div>
+            <div class="col">
+                <!-- Color -->
+
+                {{!-- <input type="number" id="form6Example2" class="form-control" name="price" />
+                --}}
+
+                <input type="number" id="defaultRegisterFormLastName" class="form-control" placeholder="Price"
+                    name="price" value="{{product.Price}}">
+            </div>
+        </div>
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+
+                {{!-- <label for="exampleFormControlSelect1">Example select</label> --}}
+                <select class="form-control" id="exampleFormControlSelect1" name="operatingSystem"
+                    value="{{product.OperatingSystem}}">
+                    <option>Select Operating System Type</option>
+                    <option>Windows</option>
+                    <option>Mac</option>
+                </select>
+            </div>
+            <div class="col">
+                <!-- sub category -->
+                <input type="text" id="defaultRegisterFormLastName" class="form-control"
+                    placeholder="operating System Name" name="operatingSystemName"
+                    value="{{product.OperatingSystemName}}">
+            </div>
+        </div>
+
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+
+                {{!-- <label for="exampleFormControlSelect1">Example select</label> --}}
+                <select class="form-control" id="exampleFormControlSelect1" name="warranty"
+                    value="{{product.Warranty}}">
+                    <option>Warranty</option>
+                    <option>1 year </option>
+                    <option>2 year </option>
+                </select>
+            </div>
+            <div class="col">
+                <input type="number" id="defaultRegisterFormLastName" class="form-control" placeholder="Stock"
+                    name="stock" value="{{product.Stock}}">
+            </div>
+        </div>
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <!-- price -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control"
+                    placeholder="Items in Sales Package" name="inBox" value="{{product.ItemsInPackage}}">
+            </div>
+            <div class="col">
+                <!-- Color -->
+                <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Color"
+                    name="color" value="{{product.Color}}">
+            </div>
+        </div>
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <!-- price -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Suitable For"
+                    name="suitable" value="{{product.SuitableFor}}">
+            </div>
+            <div class="col">
+                <select class="form-control" id="exampleFormControlSelect1" name="fingerPrintSesnsor"
+                    value="{{product.FingerPrint}}">
+                    <option>Finger Print Sensor</option>
+                    <option>Yes </option>
+                    <option>No </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <!-- price -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Battery"
+                    name="battery" value="{{product.Battery}}">
+            </div>
+            <div class="col">
+                <!-- price -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Weight"
+                    name="weight" value="{{product.Weight}}">
+            </div>
+
+        </div>
+
+        <!-- description -->
+        <div class="form-row mb-4" >
+          <div class="col mb-4">
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="description1" placeholder="Short Description"
+            value="{{product.ShortDescription}}">
+            </div>  
+            <div class="col mb-4">
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="Description" placeholder="Description"
+            value="{{product.Description}}">
+            </div>
+            <div class="col mb-4">
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="additionalFeatures" placeholder="Additional Features"
+            value="{{product.AdditionalFeatures}}">
+            </div>
+</div>
+
+        {{!-- <textarea type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Short Description"
+            name="description1" value="{{product.ShortDescription}}"></textarea>
+        <textarea type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Description"
+            name="description2" value="{{product.Description}}"></textarea>
+        <textarea type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Additional Features"
+            name="additionalFeatures" value="{{product.AdditionalFeatures}}"></textarea> --}}
+
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <!-- price -->
+                <img src="/uploads/{{product.Image.[0].image_1}}" alt="" srcset="" style="width: 100px;height: 100px; "
+                    class="mb-2">
+
+
+                <input type="file" id="defaultRegisterFormFirstName" class="form-control" placeholder="image"
+                    name="image_1">
+                <input type="text" id="defaultRegisterFormLastName" class="form-control" style="display: none;"
+                    name="image_1" value="{{product.Image.[0].image_1}}" />
+            </div>
+            <div class="col">
+                <img src="/uploads/{{product.Image.[0].image_2}}" alt="" srcset="" style="width: 100px;height: 100px; "
+                    class="mb-2">
+
+                <input type="file" id="defaultRegisterFormLastName" class="form-control" placeholder="image"
+                    name="image_2">
+                <input type="text" id="defaultRegisterFormLastName" class="form-control" style="display: none;"
+                    name="image_2" value="{{product.Image.[0].image_2}}" />
+            </div>
+        </div>
+        <div class="form-row mb-4" style="display: flex;">
+            <div class="col">
+                <img src="/uploads/{{product.Image.[0].image_3}}" alt="" srcset="" style="width: 100px;height: 100px; "
+                    class="mb-2">
+                <!-- price -->
+                <input type="file" id="defaultRegisterFormFirstName" class="form-control" placeholder="image"
+                    name="image_3">
+                <input type="text" id="defaultRegisterFormLastName" class="form-control" style="display: none;"
+                    name="image_3" value="{{product.Image.[0].image_3}}" />
+            </div>
+            <div class="col">
+                <img src="/uploads/{{product.Image.[0].image_4}}" alt="" srcset="" style="width: 100px;height: 100px; "
+                    class="mb-2">
+                <!-- Color -->
+                <input type="file" id="defaultRegisterFormLastName" class="form-control" placeholder="image"
+                    name="image_4">
+                <input type="text" id="defaultRegisterFormLastName" class="form-control" style="display: none;"
+                    name="image_4" value="{{product.Image.[0].image_4}}" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block ">SUBMIT</button>
+    </form>
+</div>
+
+
+
+
+
+{{!-- add product form js --}}
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+{{!-- add product form js end --}}

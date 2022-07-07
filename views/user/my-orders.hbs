@@ -1,0 +1,115 @@
+<div id="page" class="pt-5">
+
+
+
+    <div class="container ">
+        <div class=" ">
+            <h4>Orders List</h4>
+        </div>
+    </div>
+    <section class="mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped" id="user-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">User</th>
+
+                                <th scope="col">Total</th>
+                                <th scope="col">Method</th>
+                                {{!-- <th scope="col">Status</th> --}}
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each AllOrders}}
+                            <tr>
+                                <td scope="row">{{this._id}}</td>
+                                <td scope="row">
+                                    
+                                    {{this.ordered_on}}
+                                    
+                                </td>
+
+
+                                <td>
+                                    <div>{{this.deliveryDetails.name}}</div>
+                                    <div>{{this.deliveryDetails.house}},{{deliveryDetails.pincode}}</div>
+                                    <span>Phone:{{this.deliveryDetails.number}}</span>
+                                </td>
+                                <td>
+                                    <div>Rs.{{this.grandTotal}}</div>
+                                </td>
+
+                                <td>
+                                    <div>{{this.paymentMethod}} </div>
+                                </td>
+
+                                {{!-- <td>
+                                    <div>{{this.payment_status}}</div>
+                                </td> --}}
+
+                                <td><a href="/viewSingleOrderDetails/{{this._id}}" class=" btn_1 btn_1-secondary"  style="color: #fff; background-color: #624745; border-color: #624745; padding: 10px 25px">Details</a></td>
+                                {{!-- <td><a href="/viewOrderProducts/{{this._id}}" class="btn_1 btn-danger">cancel</a>
+                                </td> --}}
+
+
+
+                            </tr>
+                            {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {{!-- <style>
+        section {
+
+            padding: 5rem;
+        }
+    </style> --}}
+
+    {{!-- <section>
+        <table class="table table-striped" style="padding:50px; margin:auto;">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orderItems}}
+                <tr>
+                    <th scope="row">{{this.date}}</th>
+                    <td>{{this.products.productName}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>{{this.totalAmount}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </section> --}}
