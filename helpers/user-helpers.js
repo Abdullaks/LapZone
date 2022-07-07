@@ -24,10 +24,11 @@ const { response } = require('express')
 const Razorpay = require('razorpay');
 const { resolve } = require('path')
 const { log } = require('console')
+require('dotenv').config()
 
 var instance = new Razorpay({
-    key_id: 'rzp_test_7YGcxJ5vLJ6tZq',
-    key_secret: 'ivnukJKaOB5nrm2M3MiLmIGU',
+    key_id: process.env.RAZORPAY_ID,
+    key_secret: process.env.RAZORPAY_KEY ,
 });
 
 
@@ -64,8 +65,8 @@ module.exports = {
                                 port: 465,
                                 secure: true,
                                 auth: {
-                                    user: "ksabdulla000@gmail.com",
-                                    pass: "jehxqgprcfqnhlal"
+                                    user: process.env.NODEMAILER_USER,
+                                    pass: process.env.NODEMAILER_PASS
                                 },
                                 tls: {
                                     rejectUnauthorized: false
