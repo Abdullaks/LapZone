@@ -9,7 +9,7 @@ const product = require('../models/product')
 // const admin=require('../models/admin')
 
 let filterResult
-
+ 
 const verifyUserLogin = async (req, res, next) => {
   if (req.session.loggedIn) {
     let id = req.session.user._id
@@ -381,6 +381,10 @@ router.get('/orderSuccess', (req, res) => {
     console.log(err);
   })
 })
+
+// router.get('/ordersuccess',(req,res)=>{
+//   res.render('user/order-placerd-success')
+// })
 router.get('/myOrders', verifyUserLogin, (req, res) => {
   const user = req.session.user
   userHelper.getAllOrders(req.session.user._id).then((response) => {
