@@ -28,7 +28,7 @@ require('dotenv').config()
 
 var instance = new Razorpay({
     key_id: process.env.RAZORPAY_ID,
-    key_secret: process.env.RAZORPAY_KEY ,
+    key_secret: process.env.RAZORPAY_KEY,
 });
 
 
@@ -76,7 +76,7 @@ module.exports = {
                             const mailDetails = {
                                 from: "ksabdulla000@gmail.com",
                                 to: userDataa.email,
-                                subject: "just testing nodemailer",
+                                subject: "Lap Zone OTP",
                                 text: "just random texts ",
                                 html: '<p> Hi ' + userDataa.name + ' your OTP is ' + otpGenerator + ''
                             }
@@ -690,7 +690,7 @@ module.exports = {
             ])
             console.log(products);
             if (products.length == 0) {
-               
+
                 await orderData.updateMany(
                     { _id: orderId },
                     {
