@@ -787,7 +787,7 @@ module.exports = {
                         $match: { Price: { $lt: price } }
                     }
                 ])
-                // console.log("1");
+                
             }
 
             else if (brandFilter) {
@@ -803,8 +803,7 @@ module.exports = {
                         $match: { Price: { $lt: price } }
                     }
                 ])
-                // console.log("2");
-                // console.log(result);
+                
 
             }
             else if (categoryFilter) {

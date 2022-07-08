@@ -234,13 +234,8 @@ router.get('/cart', verifyUserLogin, async (req, res) => {
     res.render('user/cart', { cartItems, user, cartCount, netTotal, deliveryCharge, grandTotal })
   } else {
     const cartItems = await userHelper.getCartProducts(req.session.user._id)
-
-    let cartItem = cartItems ? product : []
     cartCount = 0
-    netTotal = 0
-    deliveryCharge = 0
-    grandTotal = 0
-    res.render('user/cart', { cartItems, user, cartCount, netTotal, deliveryCharge, grandTotal })
+    res.render('user/cart-empty', {  user, cartCount})
   }
 
 
@@ -279,10 +274,15 @@ router.post('/removeProductFromCart', (req, res) => {
 router.get('/wishList', verifyUserLogin, async (req, res) => {
   const user = req.session.user
   let wishListCount = await userHelper.getWishListCount(req.session.user._id)
+  if(wishListCount>0){
+    const wishListItems = await userHelper.getWishListProducts(req.session.user._id)
+    res.render('user/wish-list', { user, wishListCount, wishListItems })
+  }else{
+    res.render('user/wishlist-empty', { user, wishListCount})
 
-  const wishListItems = await userHelper.getWishListProducts(req.session.user._id)
+  }
 
-  res.render('user/wish-list', { user, wishListCount, wishListItems })
+  
 })
 
 router.get('/addToWishList/:id', (req, res, next) => {

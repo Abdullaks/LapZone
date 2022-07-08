@@ -162,7 +162,7 @@
             <form class="row contact_form" action="#" id="checkoutForm" method="post" novalidate="novalidate">
               <div class="col-md-12 form-group p_star me-2" style="border: 1px solid #eee;">
 
-                <input type="text" class="form-control" id="fname" name="fname" placeholder="Full name" />
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="Full name" required/>
 
                 <input type="text" class="form-control" id="#" name="userId" value="{{cartItems.user}}" hidden />
               </div>
@@ -195,15 +195,15 @@
 
           
               <div class="col-md-6 form-group p_star" style="border: 1px solid #eee;">
-                <input type="text" class="form-control" id="mobile" name="number" placeholder="Phone number" />
+                <input type="text" class="form-control" id="mobile" name="number" placeholder="Phone number" required/>
               </div>
               <div class="col-md-6 form-group p_star" style="border: 1px solid #eee;">
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" />
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" required/>
               </div>
 
               <div class="col-md-12 form-group " style="border: 1px solid #eee;">
                 <input type="text" class="form-control" id="house" name="house"
-                  placeholder="House Name or Company name" />
+                  placeholder="House Name or Company name" required/>
               </div>
 
               {{!-- <div class="col-md-12 form-group p_star">
@@ -215,13 +215,13 @@
                 </select>
               </div> --}}
               <div class="col-md-12 form-group p_star" style="border: 1px solid #eee;">
-                <input type="text" class="form-control" id="localplace" name="localplace" placeholder="Locality" />
+                <input type="text" class="form-control" id="localplace" name="localplace" placeholder="Locality" required/>
               </div>
               {{!-- <div class="col-md-12 form-group p_star">
                 <input type="text" class="form-control" id="add2" name="add2" placeholder="Address line 02" />
               </div> --}}
               <div class="col-md-12 form-group p_star" style="border: 1px solid #eee;">
-                <input type="text" class="form-control" id="town" name="town" placeholder="Town/City" />
+                <input type="text" class="form-control" id="town" name="town" placeholder="Town/City" required/>
               </div>
               <div class="col-md-12 form-group p_star" style="border: 1px solid #eee">
                 {{!-- <select class="country_select" name="district">
@@ -230,14 +230,14 @@
                   <option>Calicut</option>
                   <option>Thrissur</option>
                 </select> --}}
-                <input type="text" class="form-control" id="district" name="district" placeholder="District" />
+                <input type="text" class="form-control" id="district" name="district" placeholder="District" required/>
               </div>
               <div class="col-md-12 form-group" style="border: 1px solid #eee">
-                <input type="text" class="form-control" id="state" name="state" placeholder="State" />
+                <input type="text" class="form-control" id="state" name="state" placeholder="State" required/>
               </div>
               <div class="col-md-12 form-group" style="border: 1px solid #eee;">
                 <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Postcode/ZIP"
-                  value="" />
+                  value="" required/>
               </div>
               {{!-- <div class="col-md-12 form-group">
                 <div class="creat_account">
