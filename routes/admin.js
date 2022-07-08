@@ -29,7 +29,7 @@ router.get('/', function (req, res, next) {
 router.get('/dashBoard',verifyAdminLogin, (req, res) => {
   res.render('admin/dashBoard', { admin: true, layout: false })
 }) 
-
+ 
 router.post('/adminLogin', (req, res) => {
   adminHelper.doAdminLogin(req.body).then((response) => {
     if (response.status) {
