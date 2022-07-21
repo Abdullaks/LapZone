@@ -36,13 +36,13 @@
         <button class="btn_1 btn-primary" 
         style="color: #fff; background-color: #e4ac11; border-color: #e4ac11; padding: 10px 25px"
          onclick=" addToCart('{{pro_Id._id}}');removeProductFromWishList('{{this._id}}')"  >ADD TO CART</button>
-        {{!-- <a href="#" class="btn btn-danger ">REMOVE</a> --}}
+   
 
         <button type="button" class=" btn_1 btn-danger"  
         style="color: #fff; background-color: #dc3545; border-color: #dc3545; padding: 10px 25px" 
         onclick="removeProductFromWishList('{{this._id}}')">
          Remove</button>
-        {{!-- <a href="#" class="btn btn-danger ">REMOVE</a> --}}
+        
       </td>
       </tr>
       {{/each}}

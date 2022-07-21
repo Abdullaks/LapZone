@@ -22,11 +22,6 @@
 				<div class="row d-flex justify-content-center align-items-center h-100">
 					<div class="col-lg-10 col-xl-10">
 						<div class="card" style="border-radius: 10px;">
-							{{!-- <div class="card-header px-4 py-5 pt-5">
-								<h5 class="text-muted mb-0">Thanks for your Order, <span
-										style="color:#5b5752;">{{orderDetails.deliveryDetails.name}}</span><span
-										style="color: #a8729a;"></span>!</h5>
-							</div> --}}
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center mb-4">
 									<p class="lead fw-normal mb-0" style="color: #c86011e0;">Receipt</p>
@@ -63,33 +58,11 @@
 												<p class="text-muted mb-0 small">
 													Status : <span style="color:orangered"> {{this.status}}</span> </p>
 											</div>
-											{{!-- <div
-												class="col-md-2 text-center d-flex justify-content-center align-items-center">
-												<a href="/viewOrderSingle/{{this.item}}"
-													class="btn primary-btn">Details</a>
-											</div> --}}
-											{{!-- <div
-												class="col-md-2 text-center d-flex justify-content-center align-items-center">
-												<form action="/viewOrderSingle" method="post">
-													<input type="text" name="orderId" value="{{../order._id}}" hidden>
-													<input type="text" name="proId" value="{{this.product}}" hidden>
-													<button type="submit" class="btn primary-btn">VIEW</button>
-												</form>
-											</div> --}}
-
-
 											<div
 												class="col-md-2 text-center d-flex justify-content-center align-items-center">
-												
-
 											</div>
-
 										</div>
-
-										{{!--
-										<hr class="mb-4" style="background-color: #e0e0e0; opacity: 0;"> --}}
 										<div class="row d-flex align-items-center">
-
 										</div>
 									</div>
 								</div>
@@ -100,74 +73,30 @@
 								<div class="d-flex justify-content-between pt-2">
 									<p class="fw-bold mb-0"><span style="color:orangered;">Order Details</span></p>
 								</div>
-
-								{{!-- <div class="d-flex justify-content-between pt-2">
-									<p class="text-muted mb-0">Invoice Number : 788152</p>
-									<p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> $19.00</p>
-								</div> --}}
-
 								<div class="d-flex justify-content-between pt-2">
 									<p class="text-muted mb-0"><span class="fw-bold me-4">Invoice Date :</span>
 										{{orderDetails.ordered_on}}</p>
-									{{!-- <p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p>
-									--}}
 								</div>
 								<div class="d-flex justify-content-between pt-2">
 									<p class="text-muted mb-0"><span class="fw-bold me-4">Sub Total</span>
 										₹{{orderDetails.Total}}
-										{{!--
-									<p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p> --}}
 								</div>
-
 								<div class="d-flex justify-content-between ">
-									{{!-- <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
 									<p class="text-muted mb-0"><span class="fw-bold me-4">Shipping: </span>
 										₹{{orderDetails.ShippingCharge}}</p>
 								</div>
-								{{!-- <div class="d-flex justify-content-between ">
-									{{!-- <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
-									<p class="text-muted mb-0"><span class="fw-bold me-4">Coupon Discount : </span>
-										-₹{{orderDetails.couponDiscount}}</p>
-								</div> --}}
 								<div class="d-flex justify-content-between ">
-									{{!-- <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
 									<p class="text-muted mb-0"><span class="fw-bold me-4">Grand Total : </span> ₹
 										{{orderDetails.grandTotal}}</p>
 								</div>
 
 							</div>
-							{{!-- <div class="card-footer border-0 px-4 py-5 "
-								style="background-color: #5b5752; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-								<h5
-									class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
-									Total
-									paid: <span class="h2 mb-0 ms-2">₹{{orderDetails.grandTotal}}</span></h5>
-							</div> --}}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
-
-
-	{{!--
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-	{{!--
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
-	{{!--
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.js"></script> --}}
-
-<script>
-
-</script>
-
-
-
-
 
 	<script>
 		// delete popup
@@ -230,15 +159,6 @@
 
 		}
 	</script>
-
-
-
-
-
-
-
-
-
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </body>
 

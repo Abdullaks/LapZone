@@ -10,38 +10,23 @@
             <div class="tab-pane" id="pic-2"><img src="/uploads/{{productDetails.Image.[0].image_2}}" /></div>
             <div class="tab-pane" id="pic-3"><img src="/uploads/{{productDetails.Image.[0].image_3}}" /></div>
             <div class="tab-pane" id="pic-4"><img src="/uploads/{{productDetails.Image.[0].image_4}}" /></div>
-            {{!-- <div class="tab-pane" id="pic-4"><img src="/uploads/{{product.image.[4].images4}}" /></div> --}}
-
           </div>
           <div>
             <ul style="margin-left:5rem " class="preview-thumbnail nav nav-tabs">
               <li class="active">
                  <a data-target="#pic-1" data-toggle="tab"><img src="/uploads/{{productDetails.Image.[0].image_1}}" /></a>
               </li>
-              <li><a data-target="#pic-2" data-toggle="tab"><img src="/uploads/{{productDetails.Image.[0].image_1}}" /></a>
+              <li><a data-target="#pic-2" data-toggle="tab"><img src="/uploads/{{productDetails.Image.[0].image_2}}" /></a>
               </li>
-              <li><a data-target="#pic-3" data-toggle="tab"><img src="/uploads/{{productDetails.Image.[0].image_2}}" /></a>
+              <li><a data-target="#pic-3" data-toggle="tab"><img src="/uploads/{{productDetails.Image.[0].image_3}}" /></a>
               </li>
-              <li><a data-target="#pic-4" data-toggle="tab"><img src="/uploads/{{productDetails.Image.[0].image_3}}" /></a>
+              <li><a data-target="#pic-4" data-toggle="tab"><img src="/uploads/{{productDetails.Image.[0].image_4}}" /></a>
               </li>
-              {{!-- <li><a data-target="#pic-4" data-toggle="tab"><img
-                    src="/uploads/{{product.image.[4].images4}}" /></a>
-              </li> --}}
             </ul>
           </div>
         </div>
         <div class="details col-md-6">
           <h4 class="product-title">{{productDetails.ProductName}}</h4>
-          {{!-- <div class="rating">
-            <div class="stars">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </div>
-            <span class="review-no">41 reviews</span>
-          </div> --}}
           <p class="product-description">{{productDetails.ShortDescription}}</p>
           <h5 class="card-text price">
             <del style="color:rgb(109, 106, 106) ;"> MRP :{{productDetails.MRP}}</del>
@@ -49,24 +34,10 @@
             <strong style="color: rgb(6, 14, 88);">Price : {{productDetails.Price}}</strong> 
           </h5>
           <p><strong style="color: green;">Offer : {{productDetails.Discount}}%</strong></p> 
-          {{!-- <h5 class="price">current price: <span>₹ {{product.Prize}}</span></h5> --}}
           {{!-- <p> Brand: <span style="color: rgb(15, 14, 14);">{{productDetails.Brand.BrandName}}</span> --}}
             <br>Ram & Rom: <span style="color:rgb(15, 14, 14) ;">{{productDetails.Ram}}, {{productDetails.StorageCapacity}}</span> <br>
-            {{!-- Camara: <span style="color: rgb(15, 14, 14);">{{productDetails.backCamara}}</span><br> --}}
             {{!-- Display:<span style="font-size: 13.5px; color: rgb(15, 14, 14);">{{productDetails.Display}}</span> --}}
           </p>
-          {{!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> --}}
-          {{!-- <h5 class="sizes">sizes:
-            <span class="size" data-toggle="tooltip" title="small">s</span>
-            <span class="size" data-toggle="tooltip" title="medium">m</span>
-            <span class="size" data-toggle="tooltip" title="large">l</span>
-            <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
-          </h5> --}}
-          {{!-- <h5 class="colors">colors:
-            <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-            <span class="color green"></span>
-            <span class="color blue"></span>
-          </h5> --}}
           {{#if user}}
           <div class="action">
             <button class="add-to-cart " onclick=" addToCart('{{productDetails._id}}')" type="button"
@@ -91,9 +62,9 @@
               <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Specification</a>
               </li>
-              <li class="nav-item">
+              {{!-- <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Reviews ( 2 )</a>
-              </li>
+              </li> --}}
             </ul>
             <div class="tab-content mt-5">
               <div class="tab-pane active" id="tabs-1" role="tabpanel">
@@ -105,8 +76,6 @@
                 <P style="color:#735671;">In The Box : <span style="color: rgb(87, 83, 83);">{{productDetails.ItemsInPackage}}</span>
                 </P>
                 <P style="color:#735671;">Color : <span style="color: rgb(87, 83, 83);">{{productDetails.Color}}</span></P>
-                {{!-- <P style="color:#735671;">Display : <span style="color: rgb(87, 83, 83);">{{productDetails.Display}}</span></P> --}}
-                {{!-- <P style="color:#735671;">Version : <span style="color: rgb(87, 83, 83);">{{productDetails.Version}}</span></P> --}}
                 <P style="color:#735671;">Processor : <span style="color: rgb(87, 83, 83);">{{productDetails.Processor}}</span>
                 </P>
                 <P style="color:#735671;">Internal Storage : <span
@@ -115,7 +84,7 @@
                 <P style="color:#735671;">Battery : <span style="color: rgb(87, 83, 83);">{{productDetails.Battery}}</span></P>
 
               </div>
-              <div class="tab-pane" id="tabs-3" role="tabpanel">
+              {{!-- <div class="tab-pane" id="tabs-3" role="tabpanel">
                 <h6>Reviews ( 2 )</h6>
                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
                   quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
@@ -127,7 +96,7 @@
                   dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
                   nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
                   quis, sem.</p>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
@@ -145,7 +114,7 @@
 
 
 <style>
-  /*****************globals*************/
+  
   body {
     font-family: 'open sans';
     overflow-x: hidden;
@@ -202,6 +171,7 @@
 
   .preview-thumbnail.nav-tabs li:last-of-type {
     margin-right: 0;
+    color:inherit;
   }
 
   .tab-content {

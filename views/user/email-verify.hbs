@@ -5,17 +5,12 @@
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
-            <h3 class="mb-5"> Email Verification</h3>
-            {{!-- <h5 class="m-0">Mobile phone verification</h5> --}}
+            <h3 class="mb-5"> Email Verification </h3>
             <span class="mobile-text">Enter your Email Id <b class="text-danger"></b></span>
             <form action="/emailVerify" method="post" id="forms">
               <div class="form-outline mb-4">
                 <input type="" id="typeEmailX-2" class="form-control form-control-lg" name="email" />
               </div>
-
-
-
-              <!-- Checkbox -->
               {{#if loginErrForget}}
               <p class="error" style="color: red;">{{loginErrForget}}</p>
               {{/if}}
