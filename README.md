@@ -16,7 +16,7 @@ NOTE: Please read the RUN section before opening an issue.
 
 ## Demo
 
-![screenshot](https://github.com/Abdullaks/LapZone/blob/main/lapzone-home.jp)
+![screenshot](https://github.com/Abdullaks/LapZone/blob/main/lapzone-home.jpg)
 
 The application is deployed to AWS and can be accessed through the following link:
 
