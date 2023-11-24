@@ -9,7 +9,7 @@ const wishlistSchema = new Schema({
   products: [
     {
       pro_Id: {
-        type: mongoose.Schema.Types.ObjectId, 
+        type: mongoose.Schema.Types.ObjectId,
         ref: "product",
       },
     },
@@ -18,4 +18,3 @@ const wishlistSchema = new Schema({
 const wishlist = mongoose.model("wishlist", wishlistSchema);
 
 module.exports = wishlist;
-    
