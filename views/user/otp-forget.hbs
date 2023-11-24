@@ -6,16 +6,25 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5"> OTP verification</h3>
-            <span class="mobile-text">Enter the OTP <b class="text-danger"></b></span>
-           <form action="/otpForget" method="post" >
-            <div class="form-outline mb-4">
-              <input type="" id="typeEmailX-2" class="form-control form-control-lg" name="otp" />
-            </div>
+            <span class="mobile-text">Enter the OTP
+              <b class="text-danger"></b></span>
+            <form action="/otpForget" method="post">
+              <div class="form-outline mb-4">
+                <input
+                  type=""
+                  id="typeEmailX-2"
+                  class="form-control form-control-lg"
+                  name="otp"
+                />
+              </div>
 
-             {{#if forgetOtpErr}}
-              <p class="error" style="color: red;">{{forgetOtpErr}}</p>
+              {{#if forgetOtpErr}}
+                <p class="error" style="color: red;">{{forgetOtpErr}}</p>
               {{/if}}
-            <button class="btn btn-primary btn-lg btn-block"  type="submit">Submit</button>
+              <button
+                class="btn btn-primary btn-lg btn-block"
+                type="submit"
+              >Submit</button>
             </form>
           </div>
         </div>
