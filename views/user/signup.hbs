@@ -1,65 +1,93 @@
-<!doctype html>
 <html lang="zxx">
 
-<head>
+  <head>
 
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <!--================login_part Area =================-->
-        <section class="login_part section_padding " style="padding: 0px;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="login_part_text text-center">
-                            <div class="login_part_text_iner">
-                                <h2>Already have an account?</h2>
-                                <a href="/login" class="btn_3">Login Here</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="login_part_form">
-                            <div class="login_part_form_iner">
-                                <h3>Please Register Here</h3>
-
-
-                                <form class="row contact_form" id="forms" action="/signup" method="post" novalidate="novalidate">
-                                    <div class="col-md-12 form-group p_star">
-                                        <input type="text" class="form-control" id="name" name="name" value=""
-                                            placeholder="Name">
-                                    </div>
-                                    <div class="col-md-12 form-group p_star">
-                                        <input type="email" class="form-control" id="name" name="email" value=""
-                                            placeholder="Email">
-                                    </div>
-                                    <div class="col-md-12 form-group p_star">
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            value="" placeholder="Password">
-                                    </div>
-                                    <div class="col-md-12 form-group p_star">
-                                        <input type="password" class="form-control" id="password" name="repassword"
-                                            value="" placeholder="Confirm Password">
-                                    </div>
-                                    <div class="col-md-12 form-group">
-                                        <div class="creat_account d-flex align-items-center">
-                                        </div>
-                                        <button type="submit" value="submit" class="btn_3">
-                                            Register
-                                        </button>
-                                        
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+      <!--================login_part Area =================-->
+      <section class="login_part section_padding" style="padding: 0px;">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+              <div class="login_part_text text-center">
+                <div class="login_part_text_iner">
+                  <h2>Already have an account?</h2>
+                  <a href="/login" class="btn_3">Login Here</a>
                 </div>
+              </div>
             </div>
-        </section>
-        <!--================login_part end =================-->
+            <div class="col-lg-6 col-md-6">
+              <div class="login_part_form">
+                <div class="login_part_form_iner">
+                  <h3>Please Register Here</h3>
+
+                  <form
+                    class="row contact_form"
+                    id="forms"
+                    action="/signup"
+                    method="post"
+                    novalidate="novalidate"
+                  >
+                    <div class="col-md-12 form-group p_star">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        name="name"
+                        value=""
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="name"
+                        name="email"
+                        value=""
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        value=""
+                        placeholder="Password"
+                      />
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="repassword"
+                        value=""
+                        placeholder="Confirm Password"
+                      />
+                    </div>
+                    <div class="col-md-12 form-group">
+                      <div class="creat_account d-flex align-items-center">
+                      </div>
+                      <button type="submit" value="submit" class="btn_3">
+                        Register
+                      </button>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--================login_part end =================-->
     </main>
-    {{!-- <footer>
+    {{! <footer>
         <!-- Footer Start-->
         <div class="footer-area footer-padding">
             <div class="container">
@@ -159,9 +187,9 @@
             </form>
         </div>
     </div>
-    <!-- Search model end --> --}}
+    <!-- Search model end --> }}
 
-    {{!--
+    {{!
     <!-- JS here -->
 
     <script src="javascripts/vendor/modernizr-3.5.0.min.js"></script>
@@ -195,8 +223,8 @@
 
     <!-- Jquery Plugins, main Jquery -->
     <script src="javascripts/plugins.js"></script>
-    <script src="javascripts/main.js"></script> --}}
+    <script src="javascripts/main.js"></script> }}
 
-</body>
+  </body>
 
 </html>
