@@ -1,10 +1,7 @@
-const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const adminHelper = require("../helpers/admin-helpers");
-const admin = require("../models/admin");
 const storage = require("../middleware/multer");
-const { route } = require(".");
 
 const verifyAdminLogin = async (req, res, next) => {
   if (req.session.adminLoggedIn) {
@@ -45,7 +42,6 @@ router.post("/adminLogin", (req, res) => {
   });
 });
 router.get("/logout", (req, res) => {
-  console.log("logout");
   req.session.destroy();
   res.redirect("/admin");
 });
@@ -88,7 +84,6 @@ router.post("/addBrand", storage.single("image_1"), function (req, res, next) {
       res.redirect("/admin/brand");
     })
     .catch((error) => {
-      console.log("fahhhhh");
       res.redirect("/admin/addBrand");
     });
 });
@@ -110,7 +105,6 @@ router.post("/addCategory", (req, res) => {
       res.redirect("/admin/categories");
     })
     .catch((error) => {
-      console.log(error);
       res.redirect("/admin/categories");
     });
 });
@@ -151,8 +145,6 @@ router.post(
     adminHelper
       .addAProduct(req.body, image_1, image_2, image_3, image_4)
       .then((response) => {
-        console.log(response);
-        // req.flash("msg", "Product added successfully")
         res.redirect("/admin/viewProducts");
       });
   }
@@ -164,12 +156,8 @@ router.get("/DeleteProduct/:id", (req, res) => {
 });
 router.get("/EditProduct/:id", async (req, res) => {
   const product = await adminHelper.getProductDetails(req.params.id);
-  console.log(product);
   const brands = await adminHelper.getAllBrands();
-  console.log(brands);
   const category = await adminHelper.getAllCategory();
-  console.log(category);
-
   res.render("admin/edit_product", {
     admin: true,
     layout: false,
@@ -261,7 +249,6 @@ router.get("/DeleteCoupon/:id", (req, res) => {
 
 //     let dateArray = [];
 //     let totalArray = [];
-//     // console.log(salesReport);
 //     salesReport.forEach((s) => {
 //       dateArray.push(`${month}-${s._id} `);
 //       totalArray.push(s.total);
@@ -272,10 +259,6 @@ router.get("/DeleteCoupon/:id", (req, res) => {
 //       brandArray.push(s._id);
 //       sumArray.push(s.totalAmount);
 //     });
-//     console.log("", brandArray);
-//     // console.log("", sumArray);
-//     // console.log("", dateArray);
-//     console.log("", totalArray);
 //     res.json({ dateArray, totalArray,brandArray, sumArray, orderCount, totalAmountPaid, pendingAmount })
 //   })
 // })
