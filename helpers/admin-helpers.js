@@ -1,6 +1,4 @@
 const bcrypt = require("bcrypt");
-const { promise, reject } = require("bcrypt/promises");
-const async = require("hbs/lib/async");
 const adminData = require("../models/admin");
 const userData = require("../models/user");
 const brandData = require("../models/brand");
@@ -11,51 +9,39 @@ const couponData = require("../models/coupon");
 const { Promise, default: mongoose } = require("mongoose");
 
 module.exports = {
-  doAdminLogin: (adminDataa) => {
-    return new Promise(async (resolve, reject) => {
-      let response = {};
-      let admin = await adminData.findOne({ email: adminDataa.email });
-      if (admin) {
-        bcrypt.compare(adminDataa.password, admin.password).then((result) => {
-          if (result) {
-            response.admin = admin;
-            response.status = true;
-            resolve(response);
-          } else {
-            response.status = false;
-            resolve(response);
-          }
-        });
-      } else {
-        resolve({ status: false });
+  doAdminLogin: async (adminDataa) => {
+    const response = {
+      status: false,
+    };
+    const admin = await adminData.findOne({ email: adminDataa.email });
+    if (admin) {
+      const result = await bcrypt.compare(adminDataa.password, admin.password);
+      if (result) {
+        response.admin = admin;
+        response.status = true;
       }
-    });
+    }
+    return response;
   },
-  getAllUsers: () => {
-    return new Promise(async (resolve, reject) => {
-      const users = await userData.find().lean();
-      resolve(users);
-    });
+  getAllUsers: async () => {
+    const users = await userData.find().lean();
+    return users;
   },
-  blockUser: (userId) => {
-    return new Promise(async (resolve, reject) => {
-      const user = await userData.findByIdAndUpdate(
-        { _id: userId },
-        { $set: { block: true } },
-        { upsert: true }
-      );
-      resolve(user);
-    });
+  blockUser: async (userId) => {
+    const user = await userData.findByIdAndUpdate(
+      { _id: userId },
+      { $set: { block: true } },
+      { upsert: true }
+    );
+    return user;
   },
-  unBlockUser: (userId) => {
-    return new Promise(async (resolve, reject) => {
-      const user = await userData.findByIdAndUpdate(
-        { _id: userId },
-        { $set: { block: false } },
-        { upsert: true }
-      );
-      resolve(user);
-    });
+  unBlockUser: async (userId) => {
+    const user = await userData.findByIdAndUpdate(
+      { _id: userId },
+      { $set: { block: false } },
+      { upsert: true }
+    );
+    return user;
   },
   addABrand: (Data, image_1) => {
     return new Promise(async (resolve, reject) => {
